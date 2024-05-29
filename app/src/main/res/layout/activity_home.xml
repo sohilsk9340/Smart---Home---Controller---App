@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".MainActivity"
+    android:background="@drawable/blurry_gradient_haikei">
+
+    <!-- Header Section -->
+    <LinearLayout
+        android:id="@+id/headerSection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <!-- App Name -->
+        <TextView
+            android:id="@+id/appName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Smart Home Controller"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <!-- User Profile -->
+        <ImageView
+            android:id="@+id/userProfile"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_user_profile"
+            android:contentDescription="User Profile"/>
+    </LinearLayout>
+
+    <!-- Current Status Overview -->
+    <LinearLayout
+        android:id="@+id/statusOverview"
+        android:layout_below="@id/headerSection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingTop="16dp">
+
+        <!-- Weather Widget -->
+        <TextView
+            android:id="@+id/weatherWidget"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/black"
+            android:text="Weather: Sunny 25°C"
+            android:textSize="16sp"/>
+
+        <!-- Time and Date -->
+        <TextView
+            android:id="@+id/timeDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/black"
+            android:text="Time: 14:30, Date: 2024-05-17"
+            android:textSize="16sp"/>
+    </LinearLayout>
+
+    <!-- Quick Access Buttons -->
+    <LinearLayout
+        android:id="@+id/quickAccess"
+        android:layout_below="@id/statusOverview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingTop="16dp"/>
+
+    <!-- Lights Control -->
+    <LinearLayout
+        android:id="@+id/lightsControl"
+        android:layout_below="@id/quickAccess"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:paddingTop="16dp">
+
+        <TextView
+            android:id="@+id/lightsLabel"
+            android:layout_width="154dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:text="Lights "
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/lightsOn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/black"
+            android:text="On" />
+
+        <Button
+            android:id="@+id/lightsOff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Off"
+            android:backgroundTint="@color/black"
+            android:layout_marginLeft="8dp"/>
+    </LinearLayout>
+
+    <!-- Thermostat Control -->
+    <LinearLayout
+        android:id="@+id/thermostatControl"
+        android:layout_below="@id/lightsControl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingTop="16dp">
+
+        <TextView
+            android:id="@+id/thermostatLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thermostat:"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginRight="8dp"/>
+
+        <Button
+            android:id="@+id/tempUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Up"
+            android:backgroundTint="@color/black"/>
+
+        <TextView
+            android:id="@+id/currentTemp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="22°C"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"/>
+
+        <Button
+            android:id="@+id/tempDown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Down"
+            android:backgroundTint="@color/black"/>
+    </LinearLayout>
+
+    <!-- Rooms Overview -->
+    <GridLayout
+        android:id="@+id/roomsOverview"
+        android:layout_below="@id/thermostatControl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:orientation="horizontal"
+        android:paddingTop="16dp">
+
+        <!-- Room Tile Example -->
+        <LinearLayout
+            android:id="@+id/livingRoom"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:padding="8dp"
+            android:background="@drawable/room_title_background"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Living Room"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/livingRoomLightsStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lights: On"
+                android:textColor="@color/black"
+                android:textSize="14sp"/>
+        </LinearLayout>
+
+        <!-- Repeat for other rooms... -->
+    </GridLayout>
+
+    <!-- Activity Feed -->
+    <LinearLayout
+        android:id="@+id/activityFeed"
+        android:layout_below="@id/roomsOverview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Recent Activity"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <!-- Activity Item Example -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Door opened at 14:00"
+            android:textColor="@color/black"
+            android:textSize="14sp"/>
+        <!-- Repeat for other activity items... -->
+    </LinearLayout>
+
+    <!-- Bottom Section for Additional Features -->
+    <LinearLayout
+        android:id="@+id/bottomSection"
+        android:layout_below="@id/activityFeed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="16dp">
+
+        <!-- Add any additional sections like energy monitoring, automation, etc. -->
+    </LinearLayout>
+</RelativeLayout>
